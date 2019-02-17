@@ -6,16 +6,16 @@ pypaste
 .. image:: https://img.shields.io/pypi/v/pypaste.svg
         :target: https://pypi.python.org/pypi/pypaste
 
-.. image:: https://img.shields.io/travis/joelfrederico/pypaste.svg
-        :target: https://travis-ci.org/joelfrederico/pypaste
+.. image:: https://img.shields.io/travis/pypaste/pypaste.svg
+        :target: https://travis-ci.org/pypaste/pypaste
 
 .. image:: https://readthedocs.org/projects/pypaste/badge/?version=latest
         :target: https://pypaste.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
 
-.. image:: https://pyup.io/repos/github/joelfrederico/pypaste/shield.svg
-     :target: https://pyup.io/repos/github/joelfrederico/pypaste/
+.. image:: https://pyup.io/repos/github/pypaste/pypaste/shield.svg
+     :target: https://pyup.io/repos/github/pypaste/pypaste/
      :alt: Updates
 
 
