@@ -13,5 +13,6 @@ deploy:
     secure: BW4s8Z1eXFSv3Dxdl2+Jil7Co5XmW7Yx4pIkdk8pUNAU5eilWeSQUwyL4yq0FFGMP7Kuog1c51PfWOjB1tnhB9mzn5uO0eeNPIz5FDjG+/eynPml5sL5uAkTKcZE+a5KNo/QwusfaVhDIw9PmCMc5Yz1GlpY9BtYhrClj6LIdscWFrCY6XKen2a7gRUam0EcA223tBf9GtYLNBrjUCpk6faggY6+Dt9VXVMoP8TneCZpMx4VWo7fCT+hhWaVO60TGYOfXH0N6ef0zLlBlCc/WWPW6KPlN2wgu+gcyC2KUqrhPYDeS4PhIZkBsGVJR6wYRm2xLPp0GrCZSYmWJpss1TEd8A6LXgwRVoc4sYlXRvx/d+Oi6esSqEy346QUwF4NBQO04yv/2xmtWYHv9qxJAyXIFkCYtaKsrXvkT4MPuXV3Gpv6r7LLHqCPv0Q3RW2i3QGRf1RBO9mkY7GcjFExuHbD6M7DjPLS/yTcLUrC4ip4lpW+WCsQPoD5CTYDmN8ndZQkJRvEBAOmSk4d3fmRd6minAZNKpKBunT0euARv29KR+P+SVlm1PR7QM6+smWhWiE3pok2LLa9APythTiPcivuIayVjhWUP/xx1tkqPOiVKTpEo8EgivGO4+K6BLtamVAxqXDQ4+qpwfTsbYj+VDR+oy1fp+tYc3ryygp5cI0=
   on:
     tags: true
-    repo: joelfrederico/pypaste
+    repo: pypaste/pypaste
+    python: 3.7
     python: 3.6
