@@ -16,5 +16,5 @@ class PyPasteBase(_AbstractContextManager):
 
     @clipboard.setter
     @_abstractmethod
-    def set_clipboard(self, value):
+    def clipboard(self, value):
         self._clipboard = value

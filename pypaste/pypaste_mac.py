@@ -15,13 +15,14 @@ class Callable:
         self._callable = callable
 
     def __call__(self, *args):
-        self._callable(*args)
+        return self._callable(*args)
 
 
 class MacPaste(_PyPaste):
     def __init__(self):
         self._appkit = _ct.cdll.LoadLibrary(
                 _ctu.find_library('AppKit'))
+        self._pbtype = _ct.c_void_p.in_dll(self._appkit, "NSPasteboardTypeString")
         self._foundation = _ct.cdll.LoadLibrary(
                 _ctu.find_library('Foundation'))
         self._objc = _ct.cdll.LoadLibrary(_ctu.find_library('objc'))
@@ -85,10 +86,20 @@ class MacPaste(_PyPaste):
 
     @property
     def clipboard(self):
-        pbtype = _ct.c_void_p.in_dll(self._appkit, "NSPasteboardTypeString")
-        ptr = self._call_method(self._pboard, "stringForType:", pbtype)
+        ptr = self._call_method(self._pboard, "stringForType:", self._pbtype)
         return str(self._call_method(ptr, "UTF8String", restype=_ct.c_char_p))
 
     @clipboard.setter
-    def set_clipboard(self):
-        pass
+    def clipboard(self, value):
+        NSString = self.objc.objc_getClass(b"NSString")
+
+        size = Callable(self.objc.class_getInstanceSize, argtypes=[_ct.c_void_p], restype=_ct.c_size_t)(NSString)
+        cbuf = _ct.create_string_buffer(size)
+        NSStringConst = Callable(self.objc.objc_constructInstance, argtypes=[_ct.c_void_p, _ct.c_void_p], restype=_ct.c_void_p)
+        ns_string = NSStringConst(NSString, _ct.byref(cbuf))
+        ns_string = self._call_method(ns_string, "initWithUTF8String:", value.__str__().encode('UTF-8'), argtypes=[_ct.c_char_p], restype=_ct.c_void_p)
+
+        val = self._call_method(self._pboard, "setString:forType:", ns_string, self._pbtype, restype=_ct.c_bool)
+
+        NSStringDest = Callable(self.objc.objc_destructInstance, argtypes=[_ct.c_void_p], restype=_ct.c_void_p)
+        NSStringDest(ns_string)
